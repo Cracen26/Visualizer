@@ -1,6 +1,6 @@
 Class {
 	#name : 'BaselineOfDronesVisualization',
-	#superclass : 'Object',
+	#superclass : 'BaselineOf',
 	#category : 'BaselineOfDronesVisualization',
 	#package : 'BaselineOfDronesVisualization'
 }
