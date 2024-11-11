@@ -9,7 +9,7 @@ Class {
 }
 
 { #category : 'display' }
-Visualizer >> displayStructure [
+Visualizer >> displayCanvas [
 	| elements subelements canvas highlighElements |
 	subelements := OrderedCollection new.
 
@@ -48,6 +48,29 @@ Visualizer >> displayStructure [
 	canvas @ RSCanvasController.
 
 	^ canvas
+]
+
+{ #category : 'display' }
+Visualizer >> displayChart [
+	|x y c p|
+	
+	x := OrderedCollection new.
+	y := OrderedCollection new.
+	
+	1 to: (robots size) do: [ :i |
+		x add: (robots at:i) point x.
+		y add: (robots at:i) point y.
+	].
+
+	c := RSChart new.
+	p := RSScatterPlot new x: x y: y.
+	p color: Color blue translucent.
+	c add: p.
+
+	c addDecoration: (RSHorizontalTick new doNotUseNiceLabel asFloat: 3).
+	c addDecoration: RSVerticalTick new.
+
+	^c
 ]
 
 { #category : 'initialization' }
